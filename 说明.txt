@@ -1,0 +1,24 @@
+云海武馆
+========
+
+这是一个横版清图网游的练习项目。服务器用 Go，由你自己写。
+网页客户端以后再做，语言用 TypeScript，不要用 Vue 做战斗。
+
+现在不要引入 Gin、Kratos、go-zero、MySQL、Redis、Docker、微服务。
+先用标准库 net/http，外加一个 WebSocket 库（建议 gorilla/websocket）。
+
+建议目录：
+
+  server/
+    go.mod
+    cmd/gameserver/main.go      只负责启动
+    internal/config/config.go   读端口等配置
+    internal/ws/hub.go          连接、读、写、广播
+    internal/game/world.go      房间和战斗，从这里开始练
+
+运行：
+
+  cd server
+  go run ./cmd/gameserver
+
+练习顺序见对话。第一关只要求：两个客户端连上后，能互相收到 join 消息。
